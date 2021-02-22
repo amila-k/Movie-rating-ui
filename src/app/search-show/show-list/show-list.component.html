@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngFor="let show of shows" class="row show-row">
+        <div class="col-md-6">
+            <h5>{{show.title}}</h5>
+            <p><i>{{show.description}}</i></p>
+        </div>
+        <div class="col-md-3">
+            <label>Rate: {{show.averageRate}}</label>
+            <star-rating
+                value="{{show.averageRate}}"
+                totalstars="5" checkedcolor="yellow" 
+                uncheckedcolor="grey" 
+                size="24px"
+                readonly="true">
+            </star-rating> 
+        </div>
+        <img *ngIf="show.image" src="data:image/JPEG;base64,{{show.image}}" class="show-img">
+    </div>
+</div>
+
+<button *ngIf="pagingFiltering?.hasMoreResults" (click)="loadMoreShows()" class="btn btn-success">View more results</button>

@@ -1,0 +1,34 @@
+<div class="container">
+    <div *ngFor="let show of shows" class="row show-row">
+        <div class="col-md-6">
+            <h5>{{show.title}}</h5>
+            <p><i>{{show.description}}</i></p>
+        </div>
+        <div class="col-md-2">Rate: {{show.averageRate}}
+            <star-rating
+                value="{{show.averageRate}}"
+                totalstars="5"
+                checkedcolor="yellow"
+                uncheckedcolor="grey"
+                size="24px"
+                readonly="true">
+            </star-rating> 
+        </div>
+        <div class="col-md-2">Your rating:
+            <star-rating
+                value={{show.userRating?.rate}}
+                totalstars="5"
+                checkedcolor="yellow"
+                uncheckedcolor="grey"
+                size="24px"
+                readonly="false"
+                (rate)="onRate($event, show.id)">
+            </star-rating> 
+        </div>
+        <img *ngIf="show.image" src="data:image/JPEG;base64,{{show.image}}" class="show-img">
+
+
+
+    </div>
+</div>
+

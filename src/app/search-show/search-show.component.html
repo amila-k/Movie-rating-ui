@@ -1,0 +1,13 @@
+<div class="container center">
+    <input placeholder="Search..." class="search-input" [(ngModel)]="inputText"
+        (ngModelChange)="this.filterChanged.next($event)">
+
+    <app-show-tabs
+        (navigationChange)="onNavigationChange($event)"
+    ></app-show-tabs>
+
+    <app-show-list
+        [filterText]="filterText"
+        [showType]="showType"
+    ></app-show-list>
+</div>

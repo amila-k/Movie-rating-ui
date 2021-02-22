@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="offset-md-3 col-md-3" [ngClass]="showType == showTypes.movie ? 'selected-tab' : null">
+        <button class="btn-tab" (click)='navigate(showTypes.movie)'>Movies</button>
+    </div>
+    <div class="col-md-3" [ngClass]="showType == showTypes.tvshow ? 'selected-tab' : null">
+        <button class="btn-tab" (click)='navigate(showTypes.tvshow)'>TV Shows</button>
+    </div>
+</div>
